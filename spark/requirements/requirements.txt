@@ -34,7 +34,7 @@ certifi==2022.12.7
     # via requests
 cffi==1.15.1
     # via argon2-cffi-bindings
-charset-normalizer==3.0.1
+charset-normalizer==3.1.0
     # via requests
 click==8.1.3
     # via pyiceberg
@@ -50,7 +50,7 @@ duckdb==0.6.1
     # via pyiceberg
 executing==1.2.0
     # via stack-data
-fastjsonschema==2.16.2
+fastjsonschema==2.16.3
     # via nbformat
 fqdn==1.5.1
     # via jsonschema
@@ -61,7 +61,7 @@ idna==3.4
     #   anyio
     #   jsonschema
     #   requests
-ipykernel==6.21.2
+ipykernel==6.21.3
     # via
     #   ipywidgets
     #   jupyter
@@ -69,7 +69,7 @@ ipykernel==6.21.2
     #   nbclassic
     #   notebook
     #   qtconsole
-ipython==8.10.0
+ipython==8.11.0
     # via
     #   ipykernel
     #   ipywidgets
@@ -98,7 +98,7 @@ jsonschema[format-nongpl]==4.17.3
     #   jupyter-events
     #   nbformat
 jupyter==1.0.0
-    # via -r requirements/requirements.in
+    # via -r spark/requirements/requirements.in
 jupyter-client==8.0.3
     # via
     #   ipykernel
@@ -108,7 +108,7 @@ jupyter-client==8.0.3
     #   nbclient
     #   notebook
     #   qtconsole
-jupyter-console==6.6.1
+jupyter-console==6.6.3
     # via jupyter
 jupyter-core==5.2.0
     # via
@@ -124,7 +124,7 @@ jupyter-core==5.2.0
     #   qtconsole
 jupyter-events==0.6.3
     # via jupyter-server
-jupyter-server==2.3.0
+jupyter-server==2.4.0
     # via
     #   nbclassic
     #   notebook-shim
@@ -134,7 +134,7 @@ jupyterlab-pygments==0.2.2
     # via nbconvert
 jupyterlab-widgets==3.0.5
     # via ipywidgets
-markdown-it-py==2.1.0
+markdown-it-py==2.2.0
     # via rich
 markupsafe==2.1.2
     # via
@@ -150,7 +150,7 @@ mistune==2.0.5
     # via nbconvert
 mmhash3==3.0.1
     # via pyiceberg
-nbclassic==0.5.2
+nbclassic==0.5.3
     # via notebook
 nbclient==0.7.2
     # via nbconvert
@@ -172,7 +172,7 @@ nest-asyncio==1.5.6
     #   ipykernel
     #   nbclassic
     #   notebook
-notebook==6.5.2
+notebook==6.5.3
     # via jupyter
 notebook-shim==0.2.2
     # via nbclassic
@@ -197,14 +197,14 @@ pexpect==4.8.0
     # via ipython
 pickleshare==0.7.5
     # via ipython
-platformdirs==3.0.0
+platformdirs==3.1.0
     # via jupyter-core
 prometheus-client==0.16.0
     # via
     #   jupyter-server
     #   nbclassic
     #   notebook
-prompt-toolkit==3.0.37
+prompt-toolkit==3.0.38
     # via
     #   ipython
     #   jupyter-console
@@ -230,7 +230,7 @@ pygments==2.14.0
     #   qtconsole
     #   rich
 pyiceberg[duckdb,pandas,pyarrow]==0.3.0
-    # via -r requirements/requirements.in
+    # via -r spark/requirements/requirements.in
 pyparsing==3.0.9
     # via pyiceberg
 pyrsistent==0.19.3

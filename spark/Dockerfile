@@ -89,21 +89,6 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 ENV IJAVA_CLASSPATH=/opt/spark/jars/*
 
 RUN mkdir -p /home/iceberg/localwarehouse /home/iceberg/notebooks /home/iceberg/warehouse /home/iceberg/spark-events /home/iceberg
-#COPY notebooks/ /home/iceberg/notebooks
-
-## Add a notebook command
-#RUN echo '#! /bin/sh' >> /bin/notebook \
-# && echo 'export PYSPARK_DRIVER_PYTHON=jupyter-notebook' >> /bin/notebook \
-# && echo "export PYSPARK_DRIVER_PYTHON_OPTS=\"--notebook-dir=/home/iceberg/notebooks --ip='*' --NotebookApp.token='' --NotebookApp.password='' --port=8888 --no-browser --allow-root\"" >> /bin/notebook \
-# && echo "pyspark" >> /bin/notebook \
-# && chmod u+x /bin/notebook
-#
-## Add a pyspark-notebook command (alias for notebook command for backwards-compatibility)
-#RUN echo '#! /bin/sh' >> /bin/pyspark-notebook \
-# && echo 'export PYSPARK_DRIVER_PYTHON=jupyter-notebook' >> /bin/pyspark-notebook \
-# && echo "export PYSPARK_DRIVER_PYTHON_OPTS=\"--notebook-dir=/home/iceberg/notebooks --ip='*' --NotebookApp.token='' --NotebookApp.password='' --port=8888 --no-browser --allow-root\"" >> /bin/pyspark-notebook \
-# && echo "pyspark" >> /bin/pyspark-notebook \
-# && chmod u+x /bin/pyspark-notebook
 
 ARG jupyterlab_version=3.6.1
 
@@ -119,10 +104,6 @@ RUN echo '#! /bin/sh' >> /bin/notebook \
  && echo 'pyspark' >> /bin/notebook \
  && chmod u+x /bin/notebook
 
-#CMD jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=
-
-
-COPY .pyiceberg.yaml /root/.pyiceberg.yaml
 
 ENTRYPOINT ["./entrypoint.sh"]
 CMD ["notebook"]

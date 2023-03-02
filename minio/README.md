@@ -11,7 +11,7 @@ https://www.manning.com/books/data-pipelines-with-apache-airflow
 
 The shell commands in the book are given in the docker-compose
 file. I extracted them to the `entrypoint.sh` file and expanded
-the file a bit. 
+the file a bit.
 
 It supports the following options:
 - `PASSWORD` - to set the password for the minio user.
@@ -23,7 +23,7 @@ INPUT_BUCKETS and COPY_DATA.
 
 **NOTE:** the lengths of the `INPUT_BUCKETS` and `COPY_DATA`
 arrays need to be the same. Each file in `COPY_DATA` will be
-copied to the corresponding bucket by list index. 
+copied to the corresponding bucket by list index.
 Elements are separated with a comma.
 
 In case that more buckets are listed than files, the
@@ -32,10 +32,10 @@ whose index is >= then the number of files listed.
 
 An example to define the two variables:
 - `INPUT_BUCKETS=test,foo,bar`
-- `COPY_DATA=movies.csv,ratings_smaller.csv,movies.csv` 
+- `COPY_DATA=movies.csv,ratings_smaller.csv,movies.csv`
 
 For `COPY_DATA` it is assumed that the files in the /data
-directory in the docker container. 
+directory in the docker container.
 
 You'll also need to create a .env file. You can copy
-.env.backup. 
+.env.backup.

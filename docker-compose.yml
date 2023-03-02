@@ -6,10 +6,6 @@ services:
     container_name: spark-iceberg
     build: ./spark
     entrypoint: [ './entrypoint.sh', 'master' ]
-#    env_file:
-#      - spark/.env
-    depends_on:
-      - minio
     volumes:
       - ./warehouse:/home/iceberg/warehouse
       - ./notebooks:/home/iceberg/notebooks
@@ -51,35 +47,6 @@ services:
     ports:
       - '18080:18080'
 
-  minio:
-    image: minio/minio
-    container_name: iceberg-s3
-    ports:
-      - '9000:9000'
-      - '9001:9001'
-    env_file:
-      - .env
-    command: server --console-address ':9001' /data
-    volumes:
-      - minio-data:/minio/data
-    healthcheck:
-      test: [ 'CMD', 'curl', '-f', 'http://localhost:9000/minio/health/live' ]
-      interval: 30s
-      timeout: 20s
-      retries: 3
-
-  minio_init:
-    build: ./minio/
-    env_file:
-      - .env
-    environment:
-      - USER=user
-      - COPY_DIR=false
-      - INPUT_BUCKETS=data
-    depends_on:
-      - minio
-    entrypoint: /bin/sh ./entrypoint.sh
 
 volumes:
   spark-logs:
-  minio-data:
