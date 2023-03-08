@@ -29,6 +29,7 @@ services:
       - spark/.env
     volumes:
       - ./data:/opt/spark/data
+      - ./warehouse:/home/iceberg/warehouse
       - ./spark_apps:/opt/spark/apps
       - spark-logs:/opt/spark/spark-events
     ports:
