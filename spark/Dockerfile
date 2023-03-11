@@ -1,7 +1,5 @@
 FROM python:3.10-bullseye as spark-base
 
-ARG SPARK_VERSION=3.3.2
-
 # Install tools required by the OS
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -9,7 +7,6 @@ RUN apt-get update && \
       curl \
       vim \
       unzip \
-      rsync \
       openjdk-11-jdk \
       build-essential \
       software-properties-common \
@@ -17,15 +14,22 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+#RUN apt-get update &&  \
+#    apt-get install -y rsync && \
+#    apt-get clean && \
+#    rm -rf /var/lib/apt/lists/*
 
 # Setup the directories for our Spark and Hadoop installations
 ENV SPARK_HOME=${SPARK_HOME:-"/opt/spark"}
 ENV HADOOP_HOME=${HADOOP_HOME:-"/opt/hadoop"}
+ENV PYTHONPATH=$SPARK_HOME/python/:$SPARK_HOME/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH
 
 RUN mkdir -p ${HADOOP_HOME} && mkdir -p ${SPARK_HOME}
 WORKDIR ${SPARK_HOME}
 
 # Download and install Spark
+ENV SPARK_VERSION=3.3.2
+
 RUN curl https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz -o spark-${SPARK_VERSION}-bin-hadoop3.tgz \
  && tar xvzf spark-${SPARK_VERSION}-bin-hadoop3.tgz --directory /opt/spark --strip-components 1 \
  && rm -rf spark-${SPARK_VERSION}-bin-hadoop3.tgz
@@ -54,8 +58,6 @@ COPY spark-defaults.conf "$SPARK_HOME/conf"
 
 RUN chmod u+x /opt/spark/sbin/* && \
     chmod u+x /opt/spark/bin/*
-
-ENV PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
 
 # Copy appropriate entrypoint script
 COPY entrypoint.sh .
@@ -101,6 +103,7 @@ RUN apt-get update -y && \
 RUN echo '#! /bin/sh' >> /bin/notebook \
  && echo 'export PYSPARK_DRIVER_PYTHON=jupyter' >> /bin/notebook \
  && echo "export PYSPARK_DRIVER_PYTHON_OPTS=\"lab --notebook-dir=/home/iceberg/notebooks --ip='0.0.0.0' --NotebookApp.token='' --port=8888 --no-browser --allow-root\"" >> /bin/notebook \
+# && echo 'pyspark --master local[*]' >> /bin/notebook \
  && echo 'pyspark' >> /bin/notebook \
  && chmod u+x /bin/notebook
 
