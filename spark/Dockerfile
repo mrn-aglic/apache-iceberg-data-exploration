@@ -68,7 +68,7 @@ ENTRYPOINT ["./entrypoint.sh"]
 FROM pyspark as spark-iceberg
 
 # Download iceberg spark runtime
-RUN curl https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.3_2.12/1.1.0/iceberg-spark-runtime-3.3_2.12-1.1.0.jar -Lo /opt/spark/jars/iceberg-spark-runtime-3.3_2.12-1.1.0.jar
+RUN curl https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.3_2.12/1.2.1/iceberg-spark-runtime-3.3_2.12-1.2.1.jar -Lo /opt/spark/jars/iceberg-spark-runtime-3.3_2.12-1.2.1.jar
 
 ENV TABULAR_VERSION=0.50.4
 
