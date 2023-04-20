@@ -30,6 +30,8 @@ WORKDIR ${SPARK_HOME}
 # Download and install Spark
 ENV SPARK_VERSION=3.3.2
 
+ARG SPARK_DEFAULTS_CONF=spark-defaults.conf
+
 RUN curl https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz -o spark-${SPARK_VERSION}-bin-hadoop3.tgz \
  && tar xvzf spark-${SPARK_VERSION}-bin-hadoop3.tgz --directory /opt/spark --strip-components 1 \
  && rm -rf spark-${SPARK_VERSION}-bin-hadoop3.tgz
@@ -54,7 +56,8 @@ ENV SPARK_MASTER_PORT 7077
 ENV PYSPARK_PYTHON python3
 
 # Copy the default configurations into $SPARK_HOME/conf
-COPY spark-defaults.conf "$SPARK_HOME/conf"
+#COPY spark-defaults.conf "$SPARK_HOME/conf"
+COPY ${SPARK_DEFAULTS_CONF} "$SPARK_HOME/conf/spark-defaults.conf"
 
 RUN chmod u+x /opt/spark/sbin/* && \
     chmod u+x /opt/spark/bin/*
@@ -86,6 +89,11 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
  && sudo ./aws/install \
  && rm awscliv2.zip \
  && rm -rf aws/
+
+
+# Install PostgreSQL JDBC Driver
+RUN curl "https://jdbc.postgresql.org/download/postgresql-42.6.0.jar" -o "postgresql-42.6.0.jar" \
+    && mv postgresql-42.6.0.jar "${SPARK_HOME}/jars/postgresql-42.6.0.jar"
 
 # Add iceberg spark runtime jar to IJava classpath
 ENV IJAVA_CLASSPATH=/opt/spark/jars/*

@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  pg-catalog:
+    image: postgres:15-alpine
+    container_name: pg_catalog
+    environment:
+      - POSTGRES_USER=iceberg
+      - POSTGRES_PASSWORD=iceberg
+      - POSTGRES_DB=iceberg
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "iceberg" ]
+      interval: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+
+  spark-iceberg:
+    build:
+      context: ./spark
+      args:
+        SPARK_DEFAULTS_CONF: spark-defaults-pg-catalog.conf
+    depends_on:
+      - pg-catalog
