@@ -3,7 +3,7 @@
 echo "INPUT_BUCKETS=$INPUT_BUCKETS"
 echo "COPY_DIR=$COPY_DIR"
 
-while ! /usr/bin/mc config host add locals3 http://minio:9000 $USER $PASSWORD;
+while ! /usr/bin/mc config host add minios3 http://minio-s3:9000 $USER $PASSWORD;
   do echo 'MinIO not up and running yet...' && sleep 1;
 done;
 
@@ -11,11 +11,14 @@ echo 'Added mc host config.';
 
 echo "Variable COPY_DIR is set to $COPY_DIR"
 
+mc alias list
 
 if [ "$COPY_DIR" = "true" ]
 then
-  /usr/bin/mc mb locals3/locals3;
-  /usr/bin/mc mirror /data/ locals3/locals3/;
+  bucket="data"
+
+  /usr/bin/mc mb "minios3/$bucket";
+  /usr/bin/mc mirror /data/ "minios3/$bucket";
 else
   buckets=( $(echo $INPUT_BUCKETS | tr "," " ") )
   copy_data=( $(echo $COPY_DATA | tr "," " ") )
@@ -35,18 +38,24 @@ else
     # shellcheck disable=SC2006
     file=`echo "$file" | tr -d "[:blank:]()"`
 
+    echo "Printing file and bucket"
     echo "$file" and "$bucket"
 
-    /usr/bin/mc mb "locals3/$bucket"
+    /usr/bin/mc mb "minios3/$bucket"
+    mc stat --json minios3/iceberg-data
 
-    echo "$file"
     if [ -n "${file}" ]
     then
       echo "ENTERED IF"
-      /usr/bin/mc cp "/data/$file" "locals3/$bucket"
+      /usr/bin/mc cp "/data/$file" "minios3/$bucket"
     fi
   done;
 fi
+
+echo "Bucket created"
+
+mc ls --json minios3
+
 
 
 exit 0;
