@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  pg-catalog:
+    image: postgres:15-alpine
+    container_name: pg_catalog
+    networks:
+      iceberg-net:
+    environment:
+      - POSTGRES_USER=iceberg
+      - POSTGRES_PASSWORD=iceberg
+      - POSTGRES_DB=iceberg
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "iceberg" ]
+      interval: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+
+  minio-s3:
+    image: minio/minio
+    container_name: iceberg_s3
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    env_file:
+      - ./minio/.env
+    command: server --console-address ":9001" /data
+    networks:
+      iceberg-net:
+        aliases:
+          - iceberg-data.minio-s3
+    volumes:
+      - minio-s3-data:/minio/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  minio-s3-init:
+    build: ./minio/
+    networks:
+      iceberg-net:
+    env_file:
+      - ./minio/.env
+    volumes:
+      - ./minio/data/:/data
+    environment:
+      - USER=user
+      - COPY_DIR=false
+      - INPUT_BUCKETS=iceberg-data
+    depends_on:
+      - minio-s3
+    entrypoint: /bin/sh ./entrypoint.sh
+
+
+  spark-iceberg:
+    build:
+      context: ./spark
+      args:
+        SPARK_DEFAULTS_CONF: spark-defaults-minio.conf
+    networks:
+      iceberg-net:
+    depends_on:
+      pg-catalog:
+        condition: service_healthy
+      minio-s3-init:
+        condition: service_completed_successfully
+
+  spark-worker:
+    networks:
+      iceberg-net:
+
+  spark-history-server:
+    networks:
+      iceberg-net:
+
+volumes:
+  minio-s3-data:
+
+networks:
+  iceberg-net:
