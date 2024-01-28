@@ -53,3 +53,6 @@ build-minio:
 
 run-minio:
 	make down-iceberg-minio && docker compose -f docker-compose.yml -f docker-compose-minio.yml up minio-s3 minio-s3-init
+
+start-s3-storage:
+	docker compose -f docker-compose.yml -f docker-compose-minio.yml up minio-s3
