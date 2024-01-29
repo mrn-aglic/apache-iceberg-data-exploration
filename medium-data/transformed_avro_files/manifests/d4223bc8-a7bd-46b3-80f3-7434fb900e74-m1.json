@@ -1,0 +1,153 @@
+[
+    {
+        "status": 1,
+        "snapshot_id": 7825605915503001692,
+        "sequence_number": null,
+        "file_sequence_number": null,
+        "data_file": {
+            "content": 0,
+            "file_path": "s3://iceberg-data/db/minio/data/00000-14-ab2a6c1e-23c1-4aa1-8d9a-09a9d7d97238-00001.parquet",
+            "file_format": "PARQUET",
+            "partition": {},
+            "record_count": 2,
+            "file_size_in_bytes": 1656,
+            "column_sizes": [
+                {
+                    "key": 1,
+                    "value": 56
+                },
+                {
+                    "key": 2,
+                    "value": 50
+                },
+                {
+                    "key": 3,
+                    "value": 59
+                },
+                {
+                    "key": 4,
+                    "value": 56
+                },
+                {
+                    "key": 5,
+                    "value": 48
+                },
+                {
+                    "key": 6,
+                    "value": 72
+                }
+            ],
+            "value_counts": [
+                {
+                    "key": 1,
+                    "value": 2
+                },
+                {
+                    "key": 2,
+                    "value": 2
+                },
+                {
+                    "key": 3,
+                    "value": 2
+                },
+                {
+                    "key": 4,
+                    "value": 2
+                },
+                {
+                    "key": 5,
+                    "value": 2
+                },
+                {
+                    "key": 6,
+                    "value": 2
+                }
+            ],
+            "null_value_counts": [
+                {
+                    "key": 1,
+                    "value": 0
+                },
+                {
+                    "key": 2,
+                    "value": 0
+                },
+                {
+                    "key": 3,
+                    "value": 0
+                },
+                {
+                    "key": 4,
+                    "value": 0
+                },
+                {
+                    "key": 5,
+                    "value": 0
+                },
+                {
+                    "key": 6,
+                    "value": 0
+                }
+            ],
+            "nan_value_counts": [],
+            "lower_bounds": [
+                {
+                    "key": 1,
+                    "value": "Maria"
+                },
+                {
+                    "key": 2,
+                    "value": ""
+                },
+                {
+                    "key": 3,
+                    "value": "Jones"
+                },
+                {
+                    "key": 4,
+                    "value": "39192"
+                },
+                {
+                    "key": 5,
+                    "value": "F"
+                },
+                {
+                    "key": 6,
+                    "value": "\u00a0\u000f\u0000\u0000"
+                }
+            ],
+            "upper_bounds": [
+                {
+                    "key": 1,
+                    "value": "Robert"
+                },
+                {
+                    "key": 2,
+                    "value": "Anne"
+                },
+                {
+                    "key": 3,
+                    "value": "Williams"
+                },
+                {
+                    "key": 4,
+                    "value": "42114"
+                },
+                {
+                    "key": 5,
+                    "value": "M"
+                },
+                {
+                    "key": 6,
+                    "value": "\u00a0\u000f\u0000\u0000"
+                }
+            ],
+            "key_metadata": null,
+            "split_offsets": [
+                4
+            ],
+            "equality_ids": null,
+            "sort_order_id": 0
+        }
+    }
+]

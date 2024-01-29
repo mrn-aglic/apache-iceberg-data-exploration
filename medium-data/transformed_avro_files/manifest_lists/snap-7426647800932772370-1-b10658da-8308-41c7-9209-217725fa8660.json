@@ -1,0 +1,18 @@
+[
+    {
+        "manifest_path": "s3://iceberg-data/db/minio/metadata/b10658da-8308-41c7-9209-217725fa8660-m0.avro",
+        "manifest_length": 7060,
+        "partition_spec_id": 0,
+        "content": 0,
+        "sequence_number": 1,
+        "min_sequence_number": 1,
+        "added_snapshot_id": 7426647800932772370,
+        "added_data_files_count": 2,
+        "existing_data_files_count": 0,
+        "deleted_data_files_count": 0,
+        "added_rows_count": 5,
+        "existing_rows_count": 0,
+        "deleted_rows_count": 0,
+        "partitions": []
+    }
+]

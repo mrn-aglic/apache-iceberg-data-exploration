@@ -1,0 +1,50 @@
+[
+    {
+        "manifest_path": "s3://iceberg-data/db/minio/metadata/d4223bc8-a7bd-46b3-80f3-7434fb900e74-m1.avro",
+        "manifest_length": 6976,
+        "partition_spec_id": 0,
+        "content": 0,
+        "sequence_number": 3,
+        "min_sequence_number": 3,
+        "added_snapshot_id": 7825605915503001692,
+        "added_data_files_count": 1,
+        "existing_data_files_count": 0,
+        "deleted_data_files_count": 0,
+        "added_rows_count": 2,
+        "existing_rows_count": 0,
+        "deleted_rows_count": 0,
+        "partitions": []
+    },
+    {
+        "manifest_path": "s3://iceberg-data/db/minio/metadata/274b9f78-7835-494a-88e7-c4a7fbc87659-m0.avro",
+        "manifest_length": 6947,
+        "partition_spec_id": 0,
+        "content": 0,
+        "sequence_number": 2,
+        "min_sequence_number": 2,
+        "added_snapshot_id": 2032559078621466157,
+        "added_data_files_count": 1,
+        "existing_data_files_count": 0,
+        "deleted_data_files_count": 0,
+        "added_rows_count": 1,
+        "existing_rows_count": 0,
+        "deleted_rows_count": 0,
+        "partitions": []
+    },
+    {
+        "manifest_path": "s3://iceberg-data/db/minio/metadata/d4223bc8-a7bd-46b3-80f3-7434fb900e74-m0.avro",
+        "manifest_length": 7075,
+        "partition_spec_id": 0,
+        "content": 0,
+        "sequence_number": 3,
+        "min_sequence_number": 1,
+        "added_snapshot_id": 7825605915503001692,
+        "added_data_files_count": 0,
+        "existing_data_files_count": 1,
+        "deleted_data_files_count": 1,
+        "added_rows_count": 0,
+        "existing_rows_count": 2,
+        "deleted_rows_count": 3,
+        "partitions": []
+    }
+]
