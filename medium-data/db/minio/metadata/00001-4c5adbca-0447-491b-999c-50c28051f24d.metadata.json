@@ -1,0 +1,120 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "0016734d-5067-4b3c-be6f-4ca824f900fc",
+  "location" : "s3://iceberg-data/db/minio",
+  "last-sequence-number" : 2,
+  "last-updated-ms" : 1706518166494,
+  "last-column-id" : 6,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "firstname",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 2,
+      "name" : "middlename",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "lastname",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 4,
+      "name" : "id",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 5,
+      "name" : "gender",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 6,
+      "name" : "salary",
+      "required" : false,
+      "type" : "int"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "root",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 2032559078621466157,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 2032559078621466157,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 7426647800932772370,
+    "timestamp-ms" : 1706516546185,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "app-20240129082210-0000",
+      "added-data-files" : "2",
+      "added-records" : "5",
+      "added-files-size" : "3365",
+      "changed-partition-count" : "1",
+      "total-records" : "5",
+      "total-files-size" : "3365",
+      "total-data-files" : "2",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "s3://iceberg-data/db/minio/metadata/snap-7426647800932772370-1-b10658da-8308-41c7-9209-217725fa8660.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 2032559078621466157,
+    "parent-snapshot-id" : 7426647800932772370,
+    "timestamp-ms" : 1706518166494,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "app-20240129082210-0000",
+      "added-data-files" : "1",
+      "added-records" : "1",
+      "added-files-size" : "1636",
+      "changed-partition-count" : "1",
+      "total-records" : "6",
+      "total-files-size" : "5001",
+      "total-data-files" : "3",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "s3://iceberg-data/db/minio/metadata/snap-2032559078621466157-1-274b9f78-7835-494a-88e7-c4a7fbc87659.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1706516546185,
+    "snapshot-id" : 7426647800932772370
+  }, {
+    "timestamp-ms" : 1706518166494,
+    "snapshot-id" : 2032559078621466157
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1706516546185,
+    "metadata-file" : "s3://iceberg-data/db/minio/metadata/00000-f5b4c31a-cf6e-4723-a086-0c66c6a102f4.metadata.json"
+  } ]
+}

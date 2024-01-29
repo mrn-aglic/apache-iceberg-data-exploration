@@ -1,0 +1,304 @@
+[
+    {
+        "status": 0,
+        "snapshot_id": 7426647800932772370,
+        "sequence_number": 1,
+        "file_sequence_number": 1,
+        "data_file": {
+            "content": 0,
+            "file_path": "s3://iceberg-data/db/minio/data/00000-0-9a99aa40-5d08-4d7e-850a-d307d23f5c0f-00001.parquet",
+            "file_format": "PARQUET",
+            "partition": {},
+            "record_count": 2,
+            "file_size_in_bytes": 1641,
+            "column_sizes": [
+                {
+                    "key": 1,
+                    "value": 58
+                },
+                {
+                    "key": 2,
+                    "value": 50
+                },
+                {
+                    "key": 3,
+                    "value": 51
+                },
+                {
+                    "key": 4,
+                    "value": 56
+                },
+                {
+                    "key": 5,
+                    "value": 73
+                },
+                {
+                    "key": 6,
+                    "value": 46
+                }
+            ],
+            "value_counts": [
+                {
+                    "key": 1,
+                    "value": 2
+                },
+                {
+                    "key": 2,
+                    "value": 2
+                },
+                {
+                    "key": 3,
+                    "value": 2
+                },
+                {
+                    "key": 4,
+                    "value": 2
+                },
+                {
+                    "key": 5,
+                    "value": 2
+                },
+                {
+                    "key": 6,
+                    "value": 2
+                }
+            ],
+            "null_value_counts": [
+                {
+                    "key": 1,
+                    "value": 0
+                },
+                {
+                    "key": 2,
+                    "value": 0
+                },
+                {
+                    "key": 3,
+                    "value": 0
+                },
+                {
+                    "key": 4,
+                    "value": 0
+                },
+                {
+                    "key": 5,
+                    "value": 0
+                },
+                {
+                    "key": 6,
+                    "value": 0
+                }
+            ],
+            "nan_value_counts": [],
+            "lower_bounds": [
+                {
+                    "key": 1,
+                    "value": "James"
+                },
+                {
+                    "key": 2,
+                    "value": ""
+                },
+                {
+                    "key": 3,
+                    "value": ""
+                },
+                {
+                    "key": 4,
+                    "value": "36636"
+                },
+                {
+                    "key": 5,
+                    "value": "M"
+                },
+                {
+                    "key": 6,
+                    "value": "\u00b8\u000b\u0000\u0000"
+                }
+            ],
+            "upper_bounds": [
+                {
+                    "key": 1,
+                    "value": "Michael"
+                },
+                {
+                    "key": 2,
+                    "value": "Rose"
+                },
+                {
+                    "key": 3,
+                    "value": "Smith"
+                },
+                {
+                    "key": 4,
+                    "value": "40288"
+                },
+                {
+                    "key": 5,
+                    "value": "M"
+                },
+                {
+                    "key": 6,
+                    "value": "\u00a0\u000f\u0000\u0000"
+                }
+            ],
+            "key_metadata": null,
+            "split_offsets": [
+                4
+            ],
+            "equality_ids": null,
+            "sort_order_id": 0
+        }
+    },
+    {
+        "status": 2,
+        "snapshot_id": 7825605915503001692,
+        "sequence_number": 1,
+        "file_sequence_number": 1,
+        "data_file": {
+            "content": 0,
+            "file_path": "s3://iceberg-data/db/minio/data/00001-1-9a99aa40-5d08-4d7e-850a-d307d23f5c0f-00001.parquet",
+            "file_format": "PARQUET",
+            "partition": {},
+            "record_count": 3,
+            "file_size_in_bytes": 1724,
+            "column_sizes": [
+                {
+                    "key": 1,
+                    "value": 64
+                },
+                {
+                    "key": 2,
+                    "value": 58
+                },
+                {
+                    "key": 3,
+                    "value": 67
+                },
+                {
+                    "key": 4,
+                    "value": 60
+                },
+                {
+                    "key": 5,
+                    "value": 79
+                },
+                {
+                    "key": 6,
+                    "value": 77
+                }
+            ],
+            "value_counts": [
+                {
+                    "key": 1,
+                    "value": 3
+                },
+                {
+                    "key": 2,
+                    "value": 3
+                },
+                {
+                    "key": 3,
+                    "value": 3
+                },
+                {
+                    "key": 4,
+                    "value": 3
+                },
+                {
+                    "key": 5,
+                    "value": 3
+                },
+                {
+                    "key": 6,
+                    "value": 3
+                }
+            ],
+            "null_value_counts": [
+                {
+                    "key": 1,
+                    "value": 0
+                },
+                {
+                    "key": 2,
+                    "value": 0
+                },
+                {
+                    "key": 3,
+                    "value": 0
+                },
+                {
+                    "key": 4,
+                    "value": 0
+                },
+                {
+                    "key": 5,
+                    "value": 0
+                },
+                {
+                    "key": 6,
+                    "value": 0
+                }
+            ],
+            "nan_value_counts": [],
+            "lower_bounds": [
+                {
+                    "key": 1,
+                    "value": "Jen"
+                },
+                {
+                    "key": 2,
+                    "value": ""
+                },
+                {
+                    "key": 3,
+                    "value": "Brown"
+                },
+                {
+                    "key": 4,
+                    "value": ""
+                },
+                {
+                    "key": 5,
+                    "value": "F"
+                },
+                {
+                    "key": 6,
+                    "value": "\u00ff\u00ff\u00ff\u00ff"
+                }
+            ],
+            "upper_bounds": [
+                {
+                    "key": 1,
+                    "value": "Robert"
+                },
+                {
+                    "key": 2,
+                    "value": "Mary"
+                },
+                {
+                    "key": 3,
+                    "value": "Williams"
+                },
+                {
+                    "key": 4,
+                    "value": "42114"
+                },
+                {
+                    "key": 5,
+                    "value": "M"
+                },
+                {
+                    "key": 6,
+                    "value": "\u00a0\u000f\u0000\u0000"
+                }
+            ],
+            "key_metadata": null,
+            "split_offsets": [
+                4
+            ],
+            "equality_ids": null,
+            "sort_order_id": 0
+        }
+    }
+]
