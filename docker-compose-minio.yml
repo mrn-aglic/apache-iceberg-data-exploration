@@ -31,7 +31,7 @@ services:
         aliases:
           - iceberg-data.minio-s3
     volumes:
-      - minio-s3-data:/minio/data
+      - minio-s3-data:/data
     healthcheck:
       test: ["CMD", "mc", "ready", "local"]
       interval: 30s
